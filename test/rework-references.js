@@ -1,5 +1,5 @@
 var rework = require('rework')
-  ,  mixin = require('../')
+  , references = require('../')
   , fs = require('fs')
   , assert = require('assert')
   , read = fs.readFileSync;
@@ -11,7 +11,7 @@ function fixture (name) {
 describe('.references()', function(){
   it('should substitute @<word> with property values', function(){
     rework(fixture('references'))
-      .use(rework.references())
+      .use(references())
       .toString()
       .should.equal(fixture('references.out'));
   })
